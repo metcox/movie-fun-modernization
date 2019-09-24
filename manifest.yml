@@ -1,0 +1,29 @@
+applications:
+  - name: movie-fun-app
+    path: ./applications/movie-fun-app/build/libs/movie-fun-app-1.1.0-SNAPSHOT.war
+    routes:
+      - route: movie-fun-app-mmmb.apps.evans.pal.pivotal.io
+    memory: 1G
+    instances: 1
+    services:
+      - photo-storage
+    env:
+      ALBUMS_URL: http://album-service-mmmb.apps.evans.pal.pivotal.io/albums
+      MOVIES_URL: http://movie-service-mmmb.apps.evans.pal.pivotal.io/movies
+  - name: album-service
+    path: ./applications/album-service/build/libs/album-service-1.1.0-SNAPSHOT.jar
+    routes:
+      - route: album-service-mmmb.apps.evans.pal.pivotal.io
+    memory: 1G
+    instances: 1
+    services:
+      - photo-storage
+      - album-database
+  - name: movie-service
+    path: ./applications/movie-service/build/libs/movie-service-1.1.0-SNAPSHOT.jar
+    routes:
+      - route: movie-service-mmmb.apps.evans.pal.pivotal.io
+    memory: 1G
+    instances: 1
+    services:
+      - movie-database

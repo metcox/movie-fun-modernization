@@ -6,6 +6,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
@@ -18,7 +19,7 @@ import javax.persistence.metamodel.EntityType;
 import java.util.List;
 
 
-@Repository
+@Service
 public class MoviesClient {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
