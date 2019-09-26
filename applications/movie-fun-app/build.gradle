@@ -34,6 +34,8 @@ dependencies {
     compile "taglibs:standard:1.1.2"
     compile "javax.servlet:jstl:1.2"
 
+    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-config-client"
+
     compile "org.apache.tomcat.embed:tomcat-embed-jasper:8.5.6"
 
     testCompile "junit:junit:$junitVersion"
